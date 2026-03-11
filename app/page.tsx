@@ -1,3 +1,5 @@
+import { Header } from "@/components/header/Header";
+
 export default function Home() {
-  return <section className="bg-"></section>;
+  return <Header />;
 }
