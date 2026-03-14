@@ -1,21 +1,32 @@
 import { ComponentProps, ReactNode } from "react";
 
-type From = ComponentProps<"form">;
+type Form = ComponentProps<"form">;
 
-export const From = ({ ...props }: From) => {
+export const Form = ({ ...props }: Form) => {
   return <form {...props} />;
 };
 
-export const ItemFrom = ({ children }: { children: ReactNode }) => {
-  return <div>{children}</div>;
+export const ItemForm = ({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className: string;
+}) => {
+  return <div className={className}>{children}</div>;
 };
 
 export const Label = ({ ...props }: ComponentProps<"label">) => {
-  return <label {...props} />;
+  return <label className="text-xs mb-2" {...props} />;
 };
 
 export const Input = ({ ...props }: ComponentProps<"input">) => {
-  return <Input {...props} />;
+  return (
+    <input
+      {...props}
+      className="border border-marine-blue rounded-xs py-2 px-1.5 text-black text-xs outline-0 "
+    />
+  );
 };
 
 export const ErrorMessage = ({

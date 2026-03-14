@@ -1,10 +1,9 @@
 import { Logo, Form, Button } from "@/shared/ui";
 import { Input, ItemForm, Label } from "@/shared/ui/Form";
 import Link from "next/link";
-import css from "./background.module.css";
+import css from "../background.module.css";
 import clsx from "clsx";
-
-export default function Home() {
+export default function LoginPage() {
   return (
     <section
       className={clsx(
@@ -36,10 +35,6 @@ export default function Home() {
           </Link>
         </p>
         <Form className=" flex flex-col gap-2.5 max-w-[320px]">
-          <ItemForm className="flex flex-col">
-            <Label>Name</Label>
-            <Input placeholder="John" />
-          </ItemForm>
           <ItemForm className="flex flex-col">
             <Label>Email</Label>
             <Input placeholder="Email" />

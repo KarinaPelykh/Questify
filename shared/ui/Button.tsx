@@ -15,7 +15,7 @@ export const Button = ({
 }: ButtonProps) => {
   return (
     <button
-      className={clsx(className, variant === "primary" && "bg-transparent")}
+      className={clsx(variant === "primary" && "bg-transparent", className)}
       {...props}
     >
       {children}

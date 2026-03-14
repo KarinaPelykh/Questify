@@ -18,6 +18,7 @@
 
   --color-red: #db0837;
   --color-light-orange: #ffe6d3;
+  --color-orange: #ff851c;
   --color-yellow: #fff6c0;
 
   --color-purple: #f8d2ff;
@@ -60,14 +61,25 @@
   --text-2xl--line-height: 28px;
   --text-2xl--font-weight: 700;
 
+  --text-3xl: 24px;
+  --text-3xl--line-height: 32px;
+  --text-3xl--font-weight: 700;
+
+  --text-4xl: 33px;
+  --text-4xl--line-height: 45px;
+  --text-4xl--font-weight: 700;
+
   --breakpoint-*: initial;
   --breakpoint-mobile: 360px;
   --breakpoint-tablet-l: 768px;
   --breakpoint-desktop-l: 1440px;
+
+  --shadow-*: initial;
+  --shadow-orange: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 }
 
 body {
-  background: var(--color-light-white);
+  background: var(--color-white);
   color: var(--color-black);
   font-family: Inter, sans-serif;
 }

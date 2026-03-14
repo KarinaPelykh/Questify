@@ -1,0 +1,17 @@
+.hero {
+  background-image: url("../public/images/hero-mobile.png");
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-attachment: fixed;
+  background-size: cover;
+
+  @media screen and (min-width: 768px) {
+    background-image: url("../public/images/hero-tablet.png");
+    background-position: center right;
+    background-size: contain;
+  }
+
+  @media screen and (min-width: 1440px) {
+    background-image: url("../public/images/hero-desktop.png");
+  }
+}

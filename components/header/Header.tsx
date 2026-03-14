@@ -1,17 +1,10 @@
-import { Button, Icon } from "@/shared/ui";
-import Link from "next/link";
+import { Button, Icon, Logo } from "@/shared/ui";
 
 export const Header = () => {
   return (
     <header className="bg-night-blue py-3.75 tablet-l:py-4.75">
       <nav className="container flex">
-        <Link
-          href="/"
-          className="text-marine-blue text-m mr-auto tablet-l:text-2xl "
-        >
-          Questify
-        </Link>
-
+        <Logo />
         <div className="size-7.5 mr-3 bg-midnight-blue rounded-full flex justify-center items-center text-white tablet-l:mr-auto ">
           D
         </div>
