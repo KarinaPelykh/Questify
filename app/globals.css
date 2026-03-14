@@ -1,12 +1,14 @@
 @import "tailwindcss";
 
-:root {
+@theme inline {
+  --color-*: initial;
   --color-light-blue: #cdf7ff;
   --color-marine-blue: #00d7ff;
   --color-dark-blue: #15395a;
   --color-midnight-blue: #3e4e6c;
+  --color-night-blue: #242a37;
 
-  --color-black: ##282828;
+  --color-black: #282828;
 
   --color-gray: #7b8aa4;
   --color-light-gray: #b9c3c8;
@@ -22,30 +24,65 @@
 
   --color-white: #ffffff;
   --color-light-white: #f2f3f7;
-}
 
-@theme inline {
-  --color-black: var(--color-black);
-  --color-1blue: var(--color-1blue);
-  --color-black: var(--color-black);
-  --color-light-gray: var(--color-light-gray);
-  --color-gray: var(--color-gray);
-  --color-green: var(--color-green);
-  --color-light-orange: var(--color-light-orange);
-  --color-blue: var(--color-blue);
-  --color-yellow: var(--color-yellow);
-  --color-purple: var(--color-purple);
-  --color-red: var(--color-red);
-  --color-bright-green: var(--color-bright-green);
-  --color-dark-blue: var(--color-dark-blue);
-  --color-white: var(--color-white);
-  --color-light-white: var(--color-light-white);
+  --radius-*: initial;
 
-  --color-g: var(--color-g);
+  --radius-full: 100%;
+  --radius-xs: 10px;
+
+  --text-*: initial;
+
+  --text-xs: 14px;
+  --text-xs--line-height: 10px;
+  --text-xs--font-weight: 400;
+
+  --text-s: 15px;
+  --text-s--line-height: 10px;
+  --text-s--font-weight: 300;
+
+  --text-base: 16px;
+  --text-base--line-height: 16px;
+  --text-base--font-weight: 400;
+
+  --text-ms: 17px;
+  --text-ms--line-height: 10px;
+  --text-ms--font-weight: 400;
+
+  --text-m: 18px;
+  --text-m--line-height: 25.2px;
+  --text-m--font-weight: 700;
+
+  --text-xl: 20px;
+  --text-xl--line-height: 10px;
+  --text-xl--font-weight: 700;
+
+  --text-2xl: 21px;
+  --text-2xl--line-height: 28px;
+  --text-2xl--font-weight: 700;
+
+  --breakpoint-*: initial;
+  --breakpoint-mobile: 360px;
+  --breakpoint-tablet-l: 768px;
+  --breakpoint-desktop-l: 1440px;
 }
 
 body {
   background: var(--color-light-white);
   color: var(--color-black);
   font-family: Inter, sans-serif;
+}
+
+@utility container {
+  padding: 0 20px 0 20px;
+  max-width: 767px;
+
+  @variant tablet-l {
+    padding: 0 32px 0 32px;
+    max-width: 1239px;
+  }
+
+  @variant desktop-l {
+    padding: 0 16px 0 16px;
+    max-width: 1920px;
+  }
 }

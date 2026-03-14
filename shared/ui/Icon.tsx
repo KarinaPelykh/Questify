@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import icon from "./public/sprite.svg";
+
 type IconProps = {
   className?: string;
   iconName: string;
@@ -8,7 +8,7 @@ type IconProps = {
 export const Icon = ({ className, iconName }: IconProps) => {
   return (
     <svg className={clsx(className, "size-7.5")}>
-      <use xlinkHref={icon + ` #${iconName}`}></use>
+      <use href={`/sprite.svg#${iconName}`}></use>
     </svg>
   );
 };
