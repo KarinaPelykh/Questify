@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ReactNode } from "react";
 import { QueryProvider } from "@/providers/QueryProvider";
+import { AuthProvider } from "@/providers/AuthProvider";
 
 const inter = Inter({
   variable: "--font-inter-sans",
@@ -23,7 +24,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} antialiased`}>
-        <QueryProvider>{children} </QueryProvider>
+        <QueryProvider>
+          <AuthProvider>{children}</AuthProvider>{" "}
+        </QueryProvider>
       </body>
     </html>
   );

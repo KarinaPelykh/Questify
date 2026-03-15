@@ -28,5 +28,9 @@ export const SignupResponseSchema = v.object({
   accessToken: v.string(),
 });
 
+export  const CurrentUserSchema = v.omit(SignupSchema,["password"]);
+
+export type CurrentUser = v.InferOutput<typeof CurrentUserSchema>;
 export type SignupData = v.InferOutput<typeof SignupSchema>;
 export type SignupResponse = v.InferOutput<typeof SignupResponseSchema>;
+
