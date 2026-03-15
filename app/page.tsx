@@ -1,8 +1,8 @@
-import { Logo, Form, Button } from "@/shared/ui";
-import { Input, ItemForm, Label } from "@/shared/ui/Form";
-import Link from "next/link";
+import { Logo, AppLink } from "@/shared/ui";
+
 import css from "./background.module.css";
 import clsx from "clsx";
+import { SignupForm } from "@/components/signup/SignupForm";
 
 export default function Home() {
   return (
@@ -21,37 +21,15 @@ export default function Home() {
         </h1>
         <p className="text-light-gray text-xs mb-6">
           Choose your name to{" "}
-          <Link
-            href="/"
-            className=" underline transition-all duration-500  hover:text-night-blue"
-          >
+          <AppLink href="/" className="underline   hover:text-night-blue">
             sign up
-          </Link>{" "}
+          </AppLink>{" "}
           or{" "}
-          <Link
-            href="/login"
-            className=" underline transition-all duration-500 hover:text-night-blue"
-          >
+          <AppLink href="/login" className=" underline  hover:text-night-blue">
             log in
-          </Link>
+          </AppLink>
         </p>
-        <Form className=" flex flex-col gap-2.5 max-w-[320px]">
-          <ItemForm className="flex flex-col">
-            <Label>Name</Label>
-            <Input placeholder="John" />
-          </ItemForm>
-          <ItemForm className="flex flex-col">
-            <Label>Email</Label>
-            <Input placeholder="Email" />
-          </ItemForm>
-          <ItemForm className="flex flex-col">
-            <Label>Password</Label>
-            <Input placeholder="Password" />
-          </ItemForm>
-          <Button className="rounded-full text-white bg-orange! size-13 ml-auto shadow-orange">
-            go!
-          </Button>
-        </Form>
+        <SignupForm />
       </div>
     </section>
   );
