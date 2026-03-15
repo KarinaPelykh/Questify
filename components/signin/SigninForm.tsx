@@ -1,20 +1,45 @@
+"use client";
+
 import { Button } from "@/shared/ui";
-import { Form, Input, ItemForm, Label } from "@/shared/ui/Form";
+import { Form, Input, FormField, Label } from "@/shared/ui/Form";
+import { FormProvider, useForm } from "react-hook-form";
+import { useSigninSubmit } from "./api/useSigninSubmit";
 
 export const SigninForm = () => {
+  const form = useForm({ defaultValues: { email: "", password: "" } });
+
+  const { mutate: signin } = useSigninSubmit({ reset: form.reset });
   return (
-    <Form className=" flex flex-col gap-2.5 max-w-[320px]">
-      <ItemForm className="flex flex-col">
-        <Label>Email</Label>
-        <Input placeholder="Email" />
-      </ItemForm>
-      <ItemForm className="flex flex-col">
-        <Label>Password</Label>
-        <Input placeholder="Password" />
-      </ItemForm>
-      <Button className="rounded-full text-white bg-orange! size-13 ml-auto shadow-orange">
-        go!
-      </Button>
+    <Form
+      onSubmit={form.handleSubmit((data) => signin(data))}
+      className=" flex flex-col gap-2.5 max-w-[320px]"
+    >
+      <FormProvider {...form}>
+        <FormField name="email">
+          <Label>Email</Label>
+          <Input
+            placeholder="Email"
+            id="email"
+            type="email"
+            {...form.register("email")}
+          />
+        </FormField>
+        <FormField name="password">
+          <Label>Password</Label>
+          <Input
+            placeholder="Password"
+            id="password"
+            type="password"
+            {...form.register("password")}
+          />
+        </FormField>
+        <Button
+          type="submit"
+          className="rounded-full text-white bg-orange! size-13 ml-auto shadow-orange"
+        >
+          go!
+        </Button>
+      </FormProvider>
     </Form>
   );
 };

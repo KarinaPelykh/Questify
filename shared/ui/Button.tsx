@@ -5,9 +5,11 @@ type ButtonProps = ComponentProps<"button"> & {
   className?: string;
   variant?: "primary" | "secondary";
   children: ReactNode;
+  type?: "button" | "submit";
 };
 
 export const Button = ({
+  type = "button",
   className,
   children,
   variant = "primary",
@@ -15,6 +17,7 @@ export const Button = ({
 }: ButtonProps) => {
   return (
     <button
+      type={type}
       className={clsx(variant === "primary" && "bg-transparent", className)}
       {...props}
     >
