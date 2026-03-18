@@ -1,7 +1,7 @@
 import clsx from "clsx";
-import { ComponentProps, ReactNode } from "react";
+import { HTMLAttributes, ReactNode } from "react";
 
-type ButtonProps = ComponentProps<"button"> & {
+type ButtonProps = HTMLAttributes<HTMLButtonElement> & {
   className?: string;
   variant?: "primary" | "secondary";
   children: ReactNode;
@@ -18,7 +18,10 @@ export const Button = ({
   return (
     <button
       type={type}
-      className={clsx(variant === "primary" && "bg-transparent", className)}
+      className={clsx(
+        variant === "primary" && "bg-transparent cursor-pointer",
+        className,
+      )}
       {...props}
     >
       {children}

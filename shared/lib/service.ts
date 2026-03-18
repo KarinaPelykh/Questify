@@ -10,24 +10,31 @@ import { SigninData } from "@/components/signin/model/contract";
 export const signup = async (data: SignupData) => {
   const res = await axiosInstance.post("auth/signup", data);
   const parsedData = parse(SignupResponseSchema, res.data);
+
   return parsedData;
 };
 
 export const signin = async (data: SigninData) => {
   const res = await axiosInstance.post("auth/signin", data);
   const parserData = parse(SignupResponseSchema, res.data);
+
   return parserData;
 };
 
 export const currentUser = async () => {
   const res = await axiosInstance.get("auth/current");
   //   const parsedData = parse(CurrentUserSchema, res.data);
-  console.log(res);
+  // console.log(res);
 
   return res.data;
 };
 
 export const refresh = async () => {
   const res = await axiosInstance.post("auth/refresh");
+  return res.data;
+};
+
+export const signout = async () => {
+  const res = await axiosInstance.post("auth/signout");
   return res.data;
 };

@@ -3,6 +3,7 @@ import { useMutation } from "@tanstack/react-query";
 import { UseFormReset } from "react-hook-form";
 import { SignupData } from "../model/contract";
 import { useAuth } from "@/providers/AuthProvider";
+import { useRouter } from "next/navigation";
 
 type UseSignupSubmitProps = {
   reset: UseFormReset<SignupData>;
@@ -11,12 +12,14 @@ type UseSignupSubmitProps = {
 export const useSignupSubmit = ({ reset }: UseSignupSubmitProps) => {
   const { setAccessToken } = useAuth();
 
+  const router = useRouter();
   return useMutation({
     mutationKey: ["signup"],
     mutationFn: signup,
     onSuccess: (data) => {
       reset();
       setAccessToken(data.accessToken);
+      router.push("/dashboard");
     },
 
     onError: (error) => {
