@@ -2,7 +2,7 @@ import { Icon } from "@/shared/ui";
 
 export const Card = () => {
   return (
-    <article className="bg-white rounded-xs p-5">
+    <article className="bg-white rounded-xs p-5 tablet-l:w-56 tablet-l:h-52">
       <div className="flex justify-between items-center mb-17">
         <p className="text-light-gray text-base">Hard</p>
         <Icon iconName="star" className="size-4.75" />

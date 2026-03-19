@@ -1,5 +1,5 @@
 import {
-  //   CurrentUserSchema,
+  CurrentUserSchema,
   SignupData,
   SignupResponseSchema,
 } from "@/components/signup/model/contract";
@@ -23,10 +23,9 @@ export const signin = async (data: SigninData) => {
 
 export const currentUser = async () => {
   const res = await axiosInstance.get("auth/current");
-  //   const parsedData = parse(CurrentUserSchema, res.data);
-  // console.log(res);
+  const parsedData = parse(CurrentUserSchema, res.data);
 
-  return res.data;
+  return parsedData;
 };
 
 export const refresh = async () => {

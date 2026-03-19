@@ -35,9 +35,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     const silentRefresh = async () => {
       try {
-        const res = await axiosInstance("auth/refresh");
-        setStoredAccessToken(res.data.accessToken);
-        setAccessToken(res.data.accessToken);
+        const { data } = await axiosInstance.post("auth/refresh");
+
+        setStoredAccessToken(data.accessToken);
+        setAccessToken(data.accessToken);
       } catch (error) {
         console.log(error);
       }
@@ -54,6 +55,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       setStoredAccessToken("");
     }
   }, [token]);
+
+  if (!data) return;
 
   return (
     <AuthContext.Provider value={{ token, setAccessToken, data }}>

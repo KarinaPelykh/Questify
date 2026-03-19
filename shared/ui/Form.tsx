@@ -29,9 +29,11 @@ export const Form = ({ ...props }: Form) => {
 export const FormField = ({
   name,
   children,
+  className,
 }: {
   name: string;
   children: ReactNode;
+  className?: string;
 }) => {
   const {
     formState: { errors },
@@ -41,7 +43,7 @@ export const FormField = ({
 
   return (
     <FormFieldContext value={{ messageErr }}>
-      <div className="flex flex-col">{children}</div>
+      <div className={clsx("flex flex-col", className)}>{children}</div>
     </FormFieldContext>
   );
 };
@@ -50,7 +52,7 @@ export const Label = ({ ...props }: ComponentProps<"label">) => {
   return <label className={clsx("text-xs mb-2")} {...props} />;
 };
 
-export const Input = ({ ...props }: ComponentProps<"input">) => {
+export const Input = ({ className, ...props }: ComponentProps<"input">) => {
   const { messageErr } = useFormField();
   return (
     <input
@@ -58,6 +60,7 @@ export const Input = ({ ...props }: ComponentProps<"input">) => {
       className={clsx(
         messageErr && "border-red",
         "border border-marine-blue rounded-xs py-2 px-1.5 text-black text-xs outline-0 ",
+        className,
       )}
     />
   );

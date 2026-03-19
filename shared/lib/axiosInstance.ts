@@ -2,7 +2,7 @@ import axios from "axios";
 import { getAccessToken, setStoredAccessToken } from "./authStore";
 
 export const axiosInstance = axios.create({
-  baseURL: "https://questify-backend-05gl.onrender.com/api",
+  baseURL: "https://questify-backend-05gl.onrender.com/api/",
   withCredentials: true,
 });
 
@@ -19,7 +19,7 @@ axiosInstance.interceptors.response.use(
   (res) => res,
   async (error) => {
     const originalRequest = error.config;
-    if (error.response?.status == 401 && !originalRequest._retry) {
+    if (error.response?.status == 403 && !originalRequest._retry) {
       originalRequest._retry = true;
       try {
         const { data } = await axiosInstance.post(

@@ -34,6 +34,14 @@
 
   --text-*: initial;
 
+  --text-caption: 11px;
+  --text-caption-line-height: 14px;
+  --text-caption-weight: 400;
+
+  --text-xss: 12px;
+  --text-xss--line-height: 16px;
+  --text-xss--font-weight: 400;
+
   --text-xs: 14px;
   --text-xs--line-height: 10px;
   --text-xs--font-weight: 400;
