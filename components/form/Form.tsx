@@ -1,51 +1,67 @@
 "use client";
 import { Button, Form, Icon } from "@/shared/ui";
 import { FormField, Input, Label } from "@/shared/ui/Form";
+import { SelectComponent } from "@/shared/ui/select/Select";
+import { CATEGORIES, STATUSES } from "@/shared/ui/select/select.constants";
 import clsx from "clsx";
 import { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
+import { StylesConfig } from "react-select";
 
-const CATEGORIES = [
-  { category: "STUFF", color: " #7b8aa4" },
-  { category: "FAMILY", color: "#ffe6d3" },
-  { category: "HEALTH", color: "#cdf7ff" },
-  { category: "LEARNING", color: " #fff6c0" },
-  { category: "LEISURE", color: "#f8d2ff" },
-  { category: "WORK", color: "#d3f6ce" },
-];
-
-const STATUSES = ["Hard", "Normal", "Easy"];
+export type SelectorOption = {
+  color: string;
+  value: string;
+  label: string;
+};
 
 export const FormCard = () => {
   const form = useForm();
 
-  const [category, setCategory] = useState<string>("STUFF");
+  const [category, setCategory] = useState<SelectorOption | null>({
+    value: "STUFF",
+    label: "STUFF",
+    color: " #7b8aa4",
+  });
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [status, setStatus] = useState<SelectorOption | null>({
+    value: "Hard",
+    label: "Hard",
+    color: " #7b8aa4",
+  });
 
-  const color = CATEGORIES.find((item) => item.category === category)?.color;
+  const color =
+    CATEGORIES.find((item) => item.value === category?.value)?.color || "";
+
+  const dot = (color = "") => ({
+    alignItems: "center",
+    display: "flex",
+
+    ":before": {
+      backgroundColor: color,
+      borderRadius: 10,
+      content: '" "',
+      display: "block",
+      marginRight: 8,
+      height: 8,
+      width: 8,
+    },
+  });
+
+  const colorDot: StylesConfig<SelectorOption> = {
+    option: (styles, { data }) => ({ ...styles, ...dot(data.color) }),
+    singleValue: (styles, { data }) => ({ ...styles, ...dot(data.color) }),
+  };
 
   return (
     <section className="container h-screen bg-light-white py-7 ">
       <Form className="bg-white rounded-xs p-5 tablet-l:w-56 ">
         <FormProvider {...form}>
           <div className="flex justify-between items-center mb-17 tablet-l:mb-9.75">
-            {/* <select
-              className="text-light-gray text-base tablet-l:text-sx"
-              name="selectedStatus"
-              defaultValue="Normal"
-            >
-              {STATUSES.map((status) => (
-                <option key={status} value={status}>
-                  <span
-                    className={clsx(
-                      "rounded-full size-2 bg-marine-blue block",
-                      status === "Hard" && "bg-red",
-                      status === "Easy" && "bg-bright-green",
-                    )}
-                  />
-                  {status}
-                </option>
-              ))}
-            </select> */}
+            <SelectComponent
+              // styles={colorDot}
+              setState={setStatus}
+              options={STATUSES}
+            />
             <Icon iconName="star" className="size-4.75 fill-gray" />
           </div>
           <div className="flex items-center flex-col tablet-l:mb-7">
@@ -53,7 +69,7 @@ export const FormCard = () => {
               <Label className="text-xl  tablet-l:text-xss font-bold text-light-gray">
                 CREATE NEW QUEST
               </Label>
-              <Input className="p-0 border-t-transparent border-l-transparent border-r-transparent border-b-marine-blue rounded-none! w-[163px]" />
+              <Input className="p-0 border-t-transparent border-l-transparent border-r-transparent border-b-marine-blue rounded-none! w-40.75" />
             </FormField>
 
             <span className=" text-light-gray text-m font-normal flex items-center tablet-l:text-xs ">
@@ -68,22 +84,7 @@ export const FormCard = () => {
                 "w-30 flex items-center -ml-5 rounded-tr-m rounded-br-m tablet-l:w-22 tablet-l:h-6.25 tablet-l:text-caption mr-auto",
               )}
             >
-              <select
-                name="selectedCategories"
-                defaultValue="STUFF"
-                className="text-center outline-0"
-                onChange={(e) => setCategory(e.target.value)}
-              >
-                {CATEGORIES.map((item) => (
-                  <option
-                    className="tablet-l:text-caption"
-                    value={item.category}
-                    key={item.category}
-                  >
-                    {item.category}
-                  </option>
-                ))}
-              </select>
+              <SelectComponent setState={setCategory} options={CATEGORIES} />
             </div>
             <div>
               <Button>

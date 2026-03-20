@@ -1,0 +1,67 @@
+.react-select__control {
+  border-color: transparent !important;
+  width: 88px !important;
+  background: transparent !important;
+  max-height: 25px !important;
+  min-height: 25px !important;
+}
+
+.react-select__control--is-focused {
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.react-select__single-value {
+  margin: 0px !important;
+  padding: 0px !important;
+
+  width: fit-content !important;
+}
+
+.react-select-12-input {
+  display: none !important;
+}
+.react-select__indicator {
+  margin-left: -20px;
+}
+
+.react-select__indicator-separator {
+  display: none !important;
+}
+
+.react-select__indicator {
+  padding: 0px !important;
+  color: #00d7ff !important;
+  width: 8px !important;
+}
+
+.react-select__menu {
+  background: #fff !important;
+  width: 90px !important;
+  height: auto !important;
+  border-radius: 10px !important;
+  box-shadow: none !important;
+  box-shadow:
+    3px 4px 4px 0 rgba(21, 57, 90, 0.05),
+    -3px -4px 4px 0 rgba(21, 57, 90, 0.05) !important;
+}
+
+.react-select__menu-list {
+  padding: 8px 12px;
+  border-color: transparent !important;
+}
+
+.react-select__option {
+  padding: 0px !important;
+  background: transparent !important;
+}
+
+.react-select__option--is-selected {
+  color: #b9c3c8 !important;
+}
+
+.react-select__control--menu-is-open .react-select__indicator svg {
+  transform: rotate(180deg);
+  transition-property: rotate;
+  transition-duration: 500ms;
+}
