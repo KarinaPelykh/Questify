@@ -4,11 +4,11 @@ import { Form, Button } from "@/shared/ui";
 import { ErrorMessage, Input, FormField, Label } from "@/shared/ui/Form";
 import { valibotResolver } from "@hookform/resolvers/valibot";
 import { FormProvider, useForm } from "react-hook-form";
-import { SignupSchema } from "./model/contract";
+import { SignupData, SignupSchema } from "./model/contract";
 import { useSignupSubmit } from "./api/useSignupSubmit";
 
 export const SignupForm = () => {
-  const form = useForm({
+  const form = useForm<SignupData>({
     defaultValues: { name: "", email: "", password: "" },
     resolver: valibotResolver(SignupSchema),
   });

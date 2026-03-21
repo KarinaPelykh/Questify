@@ -4,9 +4,12 @@ import { Button } from "@/shared/ui";
 import { Form, Input, FormField, Label } from "@/shared/ui/Form";
 import { FormProvider, useForm } from "react-hook-form";
 import { useSigninSubmit } from "./api/useSigninSubmit";
+import { SigninData } from "./model/contract";
 
 export const SigninForm = () => {
-  const form = useForm({ defaultValues: { email: "", password: "" } });
+  const form = useForm<SigninData>({
+    defaultValues: { email: "", password: "" },
+  });
 
   const { mutate: signin } = useSigninSubmit({ reset: form.reset });
   return (

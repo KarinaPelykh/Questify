@@ -43,7 +43,7 @@
   --text-xss--font-weight: 400;
 
   --text-xs: 14px;
-  --text-xs--line-height: 10px;
+  --text-xs--line-height: 20px;
   --text-xs--font-weight: 400;
 
   --text-s: 15px;
@@ -63,7 +63,7 @@
   --text-m--font-weight: 700;
 
   --text-xl: 20px;
-  --text-xl--line-height: 10px;
+  --text-xl--line-height: 28px;
   --text-xl--font-weight: 700;
 
   --text-2xl: 21px;

@@ -66,13 +66,16 @@ export const Input = ({ className, ...props }: ComponentProps<"input">) => {
   );
 };
 
-export const ErrorMessage = ({ ...props }: ComponentProps<"p">) => {
+export const ErrorMessage = ({ className,...props }: ComponentProps<"p">) => {
   const { messageErr } = useFormField();
 
   return (
     <p
       {...props}
-      className={clsx(messageErr ? "text-red text-xs mt-1.5" : "hidden")}
+      className={clsx(
+        messageErr ? "text-red text-xs mt-1.5" : "hidden",
+        className,
+      )}
     >
       {messageErr}
     </p>

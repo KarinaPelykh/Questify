@@ -1,6 +1,5 @@
 .react-select__control {
   border-color: transparent !important;
-  width: 88px !important;
   background: transparent !important;
   max-height: 25px !important;
   min-height: 25px !important;
@@ -10,19 +9,16 @@
   border-color: transparent !important;
   box-shadow: none !important;
 }
+.react-select__value-container {
+  padding: 0px !important;
+}
 
 .react-select__single-value {
   margin: 0px !important;
   padding: 0px !important;
-
+  align-items: center !important;
+  display: flex !important;
   width: fit-content !important;
-}
-
-.react-select-12-input {
-  display: none !important;
-}
-.react-select__indicator {
-  margin-left: -20px;
 }
 
 .react-select__indicator-separator {
@@ -33,6 +29,7 @@
   padding: 0px !important;
   color: #00d7ff !important;
   width: 8px !important;
+  margin-left: 8px;
 }
 
 .react-select__menu {
@@ -40,7 +37,8 @@
   width: 90px !important;
   height: auto !important;
   border-radius: 10px !important;
-  box-shadow: none !important;
+  box-shadow: none;
+  font-size: 14px !important;
   box-shadow:
     3px 4px 4px 0 rgba(21, 57, 90, 0.05),
     -3px -4px 4px 0 rgba(21, 57, 90, 0.05) !important;
@@ -52,6 +50,8 @@
 }
 
 .react-select__option {
+  align-items: center !important;
+  display: flex !important;
   padding: 0px !important;
   background: transparent !important;
 }
