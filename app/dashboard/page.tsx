@@ -1,7 +1,7 @@
 import { Card } from "@/components/card/Card";
 import { FormCard } from "@/components/form/Form";
 import { Header } from "@/components/header/Header";
-
+import "../../shared/ui/select/select.css";
 export default function Dashboard() {
   return (
     <>

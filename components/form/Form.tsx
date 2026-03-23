@@ -70,6 +70,8 @@ export const FormCard = () => {
             )}
           />
 
+          {/* <SelectComponent styles={colorDot} options={STATUSES} /> */}
+
           <Icon iconName="star" className="size-4.75 fill-gray" />
         </div>
         <div className="flex items-center flex-col tablet-l:mb-7">
@@ -105,7 +107,7 @@ export const FormCard = () => {
             control={form.control}
             render={({ field }) => (
               <SelectComponent
-                className="tablet-l:text-caption "
+                className="tablet-l:text-caption"
                 field={field}
                 options={CATEGORIES}
               />

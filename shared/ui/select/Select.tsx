@@ -1,13 +1,13 @@
-import Select, { StylesConfig } from "react-select";
-// import css from "./select.css";
+import Select, { SingleValue, StylesConfig } from "react-select";
+
 import { SelectorOption } from "@/components/form/Form";
 import { ControllerRenderProps } from "react-hook-form";
-import { Quest } from "@/components/form/model/contract";
 import clsx from "clsx";
+import { Quest } from "@/components/form/model/contract";
 
 type SelectComponentProps = {
   options: SelectorOption[];
-  field: ControllerRenderProps<Quest>;
+  field: ControllerRenderProps<Quest, "status" | "category">;
   styles?: StylesConfig<SelectorOption>;
   className?: string;
 };
@@ -21,16 +21,17 @@ export const SelectComponent = ({
 }: SelectComponentProps) => {
   return (
     <Select
-      {...field}
       {...props}
+      isMulti={false}
       isSearchable={false}
       classNamePrefix="react-select"
       className={clsx(className)}
       options={options}
-      value={options.find((s) => s.value === field.value)}
-      onChange={(option) => field.onChange(option?.value)}
+      value={options.find((option) => option.value === field.value)}
+      onChange={(newValue: SingleValue<SelectorOption>) =>
+        field.onChange(newValue?.value)
+      }
       styles={styles}
-      // defaultValue={options[0]}
     />
   );
 };
