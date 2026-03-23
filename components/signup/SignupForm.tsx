@@ -51,10 +51,7 @@ export const SignupForm = () => {
           />
           <ErrorMessage />
         </FormField>
-        <Button
-          type="submit"
-          className="rounded-full text-white bg-orange! size-13 ml-auto shadow-orange"
-        >
+        <Button type="submit" variant="secondary" className="  ml-auto ">
           go!
         </Button>
       </FormProvider>

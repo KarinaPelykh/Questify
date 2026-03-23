@@ -20,6 +20,8 @@ export const Button = ({
       type={type}
       className={clsx(
         variant === "primary" && "bg-transparent cursor-pointer",
+        variant === "secondary" &&
+          "rounded-full text-white bg-orange! size-13 shadow-orange flex items-center justify-center",
         className,
       )}
       {...props}

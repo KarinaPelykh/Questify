@@ -2,9 +2,14 @@
 import { Icon } from "@/shared/ui";
 import { useGetCards } from "./api/useGetCards";
 import { QuestRes } from "../form/model/contract";
+import { ActionBtn } from "./ActionBtn";
+import { useState } from "react";
 
 export const Card = () => {
   const { data } = useGetCards();
+
+  const [status, setStatus] = useState("");
+
   if (!data) return null;
 
   return (
@@ -12,7 +17,7 @@ export const Card = () => {
       {data.map(({ status, quest, category, _id }: QuestRes) => (
         <article
           key={_id}
-          className="bg-white rounded-xs p-5 tablet-l:w-56 tablet-l:h-52 flex flex-col"
+          className="bg-white rounded-xs p-5 tablet-l:w-56 tablet-l:h-52 flex flex-col group "
         >
           <div className="flex justify-between items-center mb-17 tablet-l:mb-9.75">
             <p className="text-light-gray text-base">{status}</p>
@@ -31,6 +36,7 @@ export const Card = () => {
           <div className="relative">
             <div className="w-30  bg-green  absolute -left-5 bottom-0 rounded-tr-m rounded-br-m tablet-l:w-22 tablet-l:h-6.25 " />
             <span className="absolute  bottom-0 left-0 ">{category}</span>
+            <ActionBtn />
           </div>
         </article>
       ))}
