@@ -7,10 +7,12 @@ import {
   useEffect,
   useState,
 } from "react";
-import { useGetCurrentUser } from "../shared/lib/api/useGetCurrentUser";
+
 import { CurrentUser } from "@/components/signup/model/contract";
 import { setStoredAccessToken } from "@/shared/lib/authStore";
 import { axiosInstance } from "@/shared/lib/axiosInstance";
+
+import { useGetCurrentUser } from "../shared/lib/api/useGetCurrentUser";
 
 type AuthContextP = {
   token: string;

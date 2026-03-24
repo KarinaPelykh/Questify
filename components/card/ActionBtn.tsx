@@ -1,7 +1,8 @@
 "use client";
-import { Button, Icon } from "@/shared/ui";
-import clsx from "clsx";
 import * as Separator from "@radix-ui/react-separator";
+import clsx from "clsx";
+
+import { Button, Icon } from "@/shared/ui";
 
 const icons = ["save", "clear", "done"];
 

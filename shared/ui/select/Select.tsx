@@ -1,8 +1,8 @@
+import clsx from "clsx";
+import { ControllerRenderProps } from "react-hook-form";
 import Select, { SingleValue, StylesConfig } from "react-select";
 
 import { SelectorOption } from "@/components/form/Form";
-import { ControllerRenderProps } from "react-hook-form";
-import clsx from "clsx";
 import { Quest } from "@/components/form/model/contract";
 
 type SelectComponentProps = {

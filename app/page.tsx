@@ -1,8 +1,9 @@
-import { Logo, AppLink } from "@/shared/ui";
+import clsx from "clsx";
+
+import { SignupForm } from "@/components/signup/SignupForm";
+import { AppLink,Logo } from "@/shared/ui";
 
 import css from "./background.module.css";
-import clsx from "clsx";
-import { SignupForm } from "@/components/signup/SignupForm";
 
 export default function Home() {
   return (

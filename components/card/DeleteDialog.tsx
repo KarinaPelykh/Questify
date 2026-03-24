@@ -1,8 +1,10 @@
+import * as Separator from "@radix-ui/react-separator";
+
 import { Button } from "@/shared/ui";
+import { Dialog } from "@/shared/ui/Dialog";
+
 import { useDeleteQuest } from "./api/useDeleteQuest";
 import { useQuestContext } from "./QuestContext";
-import * as Separator from "@radix-ui/react-separator";
-import { Dialog } from "@/shared/ui/Dialog";
 
 type DeleteDialogProps = {
   close: () => void;

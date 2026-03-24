@@ -1,7 +1,8 @@
 "use client";
+import { useQuery } from "@tanstack/react-query";
+
 import { useAuth } from "@/providers/AuthProvider";
 import { getQuests } from "@/shared/lib/service";
-import { useQuery } from "@tanstack/react-query";
 
 export const useGetCards = () => {
   const { token } = useAuth();

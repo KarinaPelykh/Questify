@@ -1,8 +1,9 @@
-import { Logo, AppLink } from "@/shared/ui";
+import clsx from "clsx";
+
+import { SigninForm } from "@/components/signin/SigninForm";
+import { AppLink,Logo } from "@/shared/ui";
 
 import css from "../background.module.css";
-import clsx from "clsx";
-import { SigninForm } from "@/components/signin/SigninForm";
 
 export default function LoginPage() {
   return (

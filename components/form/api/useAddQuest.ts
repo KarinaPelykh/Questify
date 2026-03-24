@@ -1,6 +1,8 @@
-import { addQuest } from "@/shared/lib/service";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { UseFormReset } from "react-hook-form";
+
+import { addQuest } from "@/shared/lib/service";
+
 import { Quest } from "../model/contract";
 
 type useAddQueryProps = {

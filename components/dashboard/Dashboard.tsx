@@ -1,9 +1,9 @@
 "use client";
-import { Button, Icon } from "@/shared/ui";
-import { Dialog } from "@/shared/ui/Dialog";
 import { QuestList } from "@/components/card/QuestList";
 import { FormCard } from "@/components/form/Form";
 import { useToggle } from "@/shared/hook/useToggle";
+import { Button, Icon } from "@/shared/ui";
+import { Dialog } from "@/shared/ui/Dialog";
 
 export const Dashboard = () => {
   const { isOpen, close, open } = useToggle();

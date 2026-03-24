@@ -1,11 +1,13 @@
 "use client";
 
-import { Form, Button } from "@/shared/ui";
-import { ErrorMessage, Input, FormField, Label } from "@/shared/ui/Form";
 import { valibotResolver } from "@hookform/resolvers/valibot";
 import { FormProvider, useForm } from "react-hook-form";
-import { SignupData, SignupSchema } from "./model/contract";
+
+import { Button,Form } from "@/shared/ui";
+import { ErrorMessage, FormField, Input, Label } from "@/shared/ui/Form";
+
 import { useSignupSubmit } from "./api/useSignupSubmit";
+import { SignupData, SignupSchema } from "./model/contract";
 
 export const SignupForm = () => {
   const form = useForm<SignupData>({

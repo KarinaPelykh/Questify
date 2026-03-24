@@ -1,5 +1,6 @@
-import { Button, Icon } from "@/shared/ui";
 import * as Separator from "@radix-ui/react-separator";
+
+import { Button, Icon } from "@/shared/ui";
 
 type ControllerBtnProps = {
   close: () => void;

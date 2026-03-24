@@ -1,17 +1,19 @@
+import { parse } from "valibot";
+
+import {
+  Quest,
+  QuestResArr,
+  QuestSchema,
+} from "@/components/form/model/contract";
+import { SigninData } from "@/components/signin/model/contract";
 import {
   CurrentUserSchema,
   RefreshResponseSchema,
   SignupData,
   SignupResponseSchema,
 } from "@/components/signup/model/contract";
+
 import { axiosInstance } from "./axiosInstance";
-import { parse } from "valibot";
-import { SigninData } from "@/components/signin/model/contract";
-import {
-  QuestSchema,
-  Quest,
-  QuestResArr,
-} from "@/components/form/model/contract";
 
 export const signup = async (data: SignupData) => {
   const res = await axiosInstance.post("auth/signup", data);

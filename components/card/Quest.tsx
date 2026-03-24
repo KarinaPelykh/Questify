@@ -1,11 +1,12 @@
 "use client";
+import { useToggle } from "@/shared/hook/useToggle";
 import { Button, Icon } from "@/shared/ui";
+
 import { CATEGORIES, STATUSES } from "../../shared/ui/select/select.constants";
+import { SelectorOption } from "../form/Form";
+import { QuestRes } from "../form/model/contract";
 import { ActionBtn } from "./ActionBtn";
 import { DeleteDialog } from "./DeleteDialog";
-import { QuestRes } from "../form/model/contract";
-import { SelectorOption } from "../form/Form";
-import { useToggle } from "@/shared/hook/useToggle";
 
 export const Quest = (quest: QuestRes) => {
   const handelColor = (s: SelectorOption[], value: string) => {

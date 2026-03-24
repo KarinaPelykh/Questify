@@ -1,5 +1,6 @@
-import { currentUser } from "@/shared/lib/service";
 import { useQuery } from "@tanstack/react-query";
+
+import { currentUser } from "@/shared/lib/service";
 
 export const useGetCurrentUser = (token?: string) => {
   return useQuery({

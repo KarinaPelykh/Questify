@@ -1,9 +1,11 @@
-import { signin } from "@/shared/lib/service";
 import { useMutation } from "@tanstack/react-query";
-import { SigninData } from "../model/contract";
-import { UseFormReset } from "react-hook-form";
-import { useAuth } from "@/providers/AuthProvider";
 import { useRouter } from "next/navigation";
+import { UseFormReset } from "react-hook-form";
+
+import { useAuth } from "@/providers/AuthProvider";
+import { signin } from "@/shared/lib/service";
+
+import { SigninData } from "../model/contract";
 
 type UseSigninSubmitProps = {
   reset: UseFormReset<SigninData>;

@@ -1,8 +1,9 @@
 "use client";
 
-import { Button, Icon, Logo } from "@/shared/ui";
-import { useSignout } from "./api/useSignout";
 import { useGetCurrentUser } from "@/shared/lib/api/useGetCurrentUser";
+import { Button, Icon, Logo } from "@/shared/ui";
+
+import { useSignout } from "./api/useSignout";
 
 export const Header = () => {
   const { mutate: signout } = useSignout();

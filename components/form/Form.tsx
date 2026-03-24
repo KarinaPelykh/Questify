@@ -1,15 +1,17 @@
 "use client";
+import { valibotResolver } from "@hookform/resolvers/valibot";
+import clsx from "clsx";
+import { Controller, FormProvider, useForm } from "react-hook-form";
+import { StylesConfig } from "react-select";
+
 import { Form, Icon } from "@/shared/ui";
 import { ErrorMessage, FormField, Input, Label } from "@/shared/ui/Form";
 import { SelectComponent } from "@/shared/ui/select/Select";
 import { CATEGORIES, STATUSES } from "@/shared/ui/select/select.constants";
-import clsx from "clsx";
-import { Controller, FormProvider, useForm } from "react-hook-form";
-import { StylesConfig } from "react-select";
+
+import { useAddQuery } from "./api/useAddQuest";
 import { ControllerBtn } from "./ControllerBtn";
 import { Quest, QuestSchema } from "./model/contract";
-import { valibotResolver } from "@hookform/resolvers/valibot";
-import { useAddQuery } from "./api/useAddQuest";
 
 export type SelectorOption = {
   color: string;

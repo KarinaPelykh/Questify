@@ -1,5 +1,6 @@
-import { deleteQuest } from "@/shared/lib/service";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+
+import { deleteQuest } from "@/shared/lib/service";
 
 export const useDeleteQuest = () => {
   const queryClient = useQueryClient();
