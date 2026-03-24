@@ -6,7 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 export const useGetCards = () => {
   const { token } = useAuth();
   return useQuery({
-    queryKey: ["all-cards"],
+    queryKey: ["all-quests"],
     queryFn: getQuests,
     enabled: !!token,
   });

@@ -61,3 +61,8 @@ export const addQuest = async (data: Quest) => {
   const parseData = parse(QuestSchema, res.data);
   return parseData;
 };
+
+export const deleteQuest = async (idQuest: string) => {
+  const res = await axiosInstance.delete(`card/${idQuest}`);
+  return res.data;
+};

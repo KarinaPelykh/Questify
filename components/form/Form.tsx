@@ -17,7 +17,11 @@ export type SelectorOption = {
   label: string;
 };
 
-export const FormCard = () => {
+type FormCardProps = {
+  close: () => void;
+};
+
+export const FormCard = ({ close }: FormCardProps) => {
   const form = useForm<Quest>({
     defaultValues: {
       quest: "",
@@ -32,6 +36,8 @@ export const FormCard = () => {
     // eslint-disable-next-line react-hooks/incompatible-library
     CATEGORIES.find((item) => item.value === form?.watch("category"))?.color ||
     " #7b8aa4";
+
+  console.log("form", color);
 
   const dot = (color = "") => ({
     ":before": {
@@ -49,7 +55,8 @@ export const FormCard = () => {
     option: (styles, { data }) => ({ ...styles, ...dot(data.color) }),
     singleValue: (styles, { data }) => ({ ...styles, ...dot(data.color) }),
   };
-  const { mutate: addQuest } = useAddQuery();
+
+  const { mutate: addQuest } = useAddQuery({ reset: form.reset });
 
   return (
     <Form
@@ -69,9 +76,6 @@ export const FormCard = () => {
               />
             )}
           />
-
-          {/* <SelectComponent styles={colorDot} options={STATUSES} /> */}
-
           <Icon iconName="star" className="size-4.75 fill-gray" />
         </div>
         <div className="flex items-center flex-col tablet-l:mb-7">
@@ -107,13 +111,13 @@ export const FormCard = () => {
             control={form.control}
             render={({ field }) => (
               <SelectComponent
-                className="tablet-l:text-caption"
+                className="tablet-l:text-caption text-xs"
                 field={field}
                 options={CATEGORIES}
               />
             )}
           />
-          <ControllerBtn />
+          <ControllerBtn close={close} />
         </div>
       </FormProvider>
     </Form>
