@@ -17,6 +17,7 @@ import { axiosInstance } from "./axiosInstance";
 
 export const signup = async (data: SignupData) => {
   const res = await axiosInstance.post("auth/signup", data);
+
   const parsedData = parse(SignupResponseSchema, res.data);
 
   return parsedData;
@@ -24,6 +25,7 @@ export const signup = async (data: SignupData) => {
 
 export const signin = async (data: SigninData) => {
   const res = await axiosInstance.post("auth/signin", data);
+
   const parserData = parse(SignupResponseSchema, res.data);
 
   return parserData;
@@ -31,6 +33,7 @@ export const signin = async (data: SigninData) => {
 
 export const currentUser = async () => {
   const res = await axiosInstance.get("auth/current");
+
   const parsedData = parse(CurrentUserSchema, res.data);
 
   return parsedData;
@@ -38,6 +41,7 @@ export const currentUser = async () => {
 
 export const refresh = async () => {
   const res = await axiosInstance.post("auth/refresh");
+
   const parsedData = parse(RefreshResponseSchema, res.data);
 
   return parsedData;
@@ -45,7 +49,6 @@ export const refresh = async () => {
 
 export const signout = async () => {
   const res = await axiosInstance.post("auth/signout");
-  // const parsedData = parse(RefreshResponseSchema, res.data);
 
   return res.data;
 };
@@ -60,11 +63,14 @@ export const getQuests = async () => {
 
 export const addQuest = async (data: Quest) => {
   const res = await axiosInstance.post("card", data);
+
   const parseData = parse(QuestSchema, res.data);
+
   return parseData;
 };
 
 export const deleteQuest = async (idQuest: string) => {
   const res = await axiosInstance.delete(`card/${idQuest}`);
+
   return res.data;
 };

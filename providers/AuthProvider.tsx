@@ -17,7 +17,7 @@ import { useGetCurrentUser } from "../shared/lib/api/useGetCurrentUser";
 type AuthContextP = {
   token: string;
   setAccessToken: (value: string) => void;
-  data: CurrentUser;
+  data: CurrentUser | undefined;
 };
 
 const AuthContext = createContext<AuthContextP | null>(null);
@@ -57,8 +57,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       setStoredAccessToken("");
     }
   }, [token]);
-
-  if (!data) return;
 
   return (
     <AuthContext.Provider value={{ token, setAccessToken, data }}>
