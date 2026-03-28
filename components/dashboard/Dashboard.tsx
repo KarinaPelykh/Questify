@@ -10,22 +10,25 @@ export const Dashboard = () => {
 
   return (
     <section className=" w-full max-h-full min-h-screen bg-light-white py-7 ">
-      <div className="container flex gap-4 flex-col tablet-l:flex-row tablet-l:flex-wrap">
-        {isOpen && (
-          <Dialog>
-            <FormCard close={close} />
-          </Dialog>
-        )}
+      <div className="container ">
+        <h1 className="mb-4.5 text-xs">TODAY</h1>
+        <div className="flex gap-4 flex-col tablet-l:flex-row tablet-l:flex-wrap">
+          {isOpen && (
+            <Dialog>
+              <FormCard close={close} />
+            </Dialog>
+          )}
 
-        <QuestList />
-        <Button
-          onClick={open}
-          type="button"
-          variant="secondary"
-          className="fixed bottom-10 right-7"
-        >
-          <Icon iconName="plus" className="size-4!" />
-        </Button>
+          <QuestList />
+          <Button
+            onClick={open}
+            type="button"
+            variant="secondary"
+            className="fixed bottom-10 right-7"
+          >
+            <Icon iconName="plus" className="size-4!" />
+          </Button>
+        </div>
       </div>
     </section>
   );

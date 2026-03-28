@@ -1,12 +1,13 @@
-"use client";
 import { valibotResolver } from "@hookform/resolvers/valibot";
 import clsx from "clsx";
+import { ReactNode } from "react";
 import { Controller, FormProvider, useForm } from "react-hook-form";
 
-import { Form, Icon } from "@/shared/ui";
+import { Icon } from "@/shared/ui";
 import {
   colorDot,
   ErrorMessage,
+  Form,
   FormField,
   handelColor,
   Input,
@@ -15,37 +16,37 @@ import {
 import { SelectComponent } from "@/shared/ui/select/Select";
 import { CATEGORIES, STATUSES } from "@/shared/ui/select/select.constants";
 
-import { useAddQuery } from "./api/useAddQuest";
-import { ControllerBtn } from "./ControllerBtn";
-import { Quest, QuestSchema } from "./model/contract";
+// import { ActionBtn } from "../card/ActionBtn";
+import { Quest, QuestSchema } from "../form/model/contract";
+import { useEdit } from "./api/useEdit";
 
-export type SelectorOption = {
-  color: string;
-  value: string;
-  label: string;
-};
+export const EditForm = ({
+  quest,
+  children,
+  btn,
+}: {
+  quest: Quest;
+  children: ReactNode;
+  btn: string;
+}) => {
+  const { quest: text, status, category, date } = quest;
 
-type FormCardProps = {
-  close: () => void;
-};
-
-export const FormCard = ({ close }: FormCardProps) => {
   const form = useForm<Quest>({
     defaultValues: {
-      quest: "",
-      status: "Normal",
-      category: "STUFF",
-      date: "21.03.2026",
+      quest: text,
+      status,
+      category,
+      date,
     },
     resolver: valibotResolver(QuestSchema),
   });
 
-  const { mutate: addQuest } = useAddQuery({ reset: form.reset });
+  const { mutate: editQuest } = useEdit();
+  console.log(btn);
 
   return (
     <Form
-      onSubmit={form.handleSubmit((data) => addQuest(data))}
-      className="bg-white rounded-xs p-5 tablet-l:w-56 flex flex-col  tablet-l:h-52"
+      onSubmit={form.handleSubmit((data) => btn === "done" && editQuest(data))}
     >
       <FormProvider {...form}>
         <div className="flex justify-between items-center mb-17 tablet-l:mb-9.75">
@@ -65,7 +66,7 @@ export const FormCard = ({ close }: FormCardProps) => {
         <div className="flex items-center flex-col tablet-l:mb-auto">
           <FormField name="quest" className="items-center mb-3.5 relative">
             <Label className="text-xl  tablet-l:text-xss font-bold text-light-gray">
-              CREATE NEW QUEST
+              EDIT QUEST
             </Label>
             <Input
               id="quest"
@@ -98,7 +99,7 @@ export const FormCard = ({ close }: FormCardProps) => {
               />
             )}
           />
-          <ControllerBtn close={close} />
+          {children}
         </div>
       </FormProvider>
     </Form>

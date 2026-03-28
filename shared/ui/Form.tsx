@@ -3,6 +3,11 @@
 import clsx from "clsx";
 import { ComponentProps, createContext, ReactNode, useContext } from "react";
 import { useFormContext } from "react-hook-form";
+import { StylesConfig } from "react-select";
+
+import { SelectorOption } from "@/components/form/Form";
+
+import { CATEGORIES } from "./select/select.constants";
 
 type Form = ComponentProps<"form">;
 
@@ -66,7 +71,7 @@ export const Input = ({ className, ...props }: ComponentProps<"input">) => {
   );
 };
 
-export const ErrorMessage = ({ className,...props }: ComponentProps<"p">) => {
+export const ErrorMessage = ({ className, ...props }: ComponentProps<"p">) => {
   const { messageErr } = useFormField();
 
   return (
@@ -80,4 +85,29 @@ export const ErrorMessage = ({ className,...props }: ComponentProps<"p">) => {
       {messageErr}
     </p>
   );
+};
+//setting fro select
+export const handelColor = (watch: (val: string) => string) => {
+  const color =
+    // eslint-disable-next-line react-hooks/incompatible-library
+    CATEGORIES.find((item) => item.value === watch("category"))?.color ||
+    " #7b8aa4";
+  return color;
+};
+
+const dot = (color = "") => ({
+  ":before": {
+    backgroundColor: color,
+    borderRadius: 10,
+    content: '" "',
+    display: "block",
+    marginRight: 8,
+    height: 8,
+    width: 8,
+  },
+});
+
+export const colorDot: StylesConfig<SelectorOption> = {
+  option: (styles, { data }) => ({ ...styles, ...dot(data.color) }),
+  singleValue: (styles, { data }) => ({ ...styles, ...dot(data.color) }),
 };

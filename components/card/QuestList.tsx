@@ -1,4 +1,5 @@
 "use client";
+
 import { QuestRes } from "../form/model/contract";
 import { useGetCards } from "./api/useGetCards";
 import { Quest } from "./Quest";
@@ -12,7 +13,12 @@ export const QuestList = () => {
   return (
     <>
       {data.map((quest: QuestRes) => (
-        <QuestContextProvider key={quest._id} questId={quest._id}>
+        <QuestContextProvider
+          key={quest._id}
+          questId={quest._id}
+          // setBtn={setBtn}
+          // btn={btn}
+        >
           <Quest {...quest} />
         </QuestContextProvider>
       ))}

@@ -1,25 +1,30 @@
 "use client";
 import * as Separator from "@radix-ui/react-separator";
 import clsx from "clsx";
+import { Fragment } from "react/jsx-runtime";
 
 import { Button, Icon } from "@/shared/ui";
 
-const icons = ["save", "clear", "done"];
+const icons = ["save", "clear", "done"] as const;
 
 type ActionBtnProps = {
   open: () => void;
+  setBtn: (val: "save" | "clear" | "done" | "") => void;
 };
 
-export const ActionBtn = ({ open }: ActionBtnProps) => {
+export const ActionBtn = ({ setBtn, open }: ActionBtnProps) => {
   return (
     <>
-      <div className="w-fit h-2.5 flex opacity-0 gap-2 absolute right-0 bottom-0   transition-all duration-500 group-hover:opacity-100">
+      <div className="w-fit h-2.5 flex gap-2 absolute right-0 bottom-0   transition-all duration-500 ">
         {icons.map((icon, i) => (
-          <>
+          <Fragment key={i}>
             <Button
-              onClick={() => icon === "clear" && open()}
+              type={icon === "done" ? "submit" : "button"}
+              onClick={() => {
+                setBtn(icon);
+                open();
+              }}
               key={icon}
-              type="button"
               variant="primary"
             >
               <Icon
@@ -39,7 +44,7 @@ export const ActionBtn = ({ open }: ActionBtnProps) => {
               decorative
               orientation="vertical"
             />
-          </>
+          </Fragment>
         ))}
       </div>
     </>
