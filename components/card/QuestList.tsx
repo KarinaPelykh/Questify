@@ -13,8 +13,8 @@ export const QuestList = () => {
   return (
     <>
       {data.map((quest: QuestRes) => (
-        <QuestContextProvider key={quest._id} questId={quest._id}>
-          <Quest {...quest} />
+        <QuestContextProvider key={quest._id} quest={quest}>
+          <Quest />
         </QuestContextProvider>
       ))}
     </>

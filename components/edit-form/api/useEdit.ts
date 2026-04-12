@@ -2,16 +2,13 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 import { editQuest } from "@/shared/lib/service";
 
-type UseEditProps = { close: () => void };
-
-export const useEdit = ({ close }: UseEditProps) => {
+export const useEdit = () => {
   const query = useQueryClient();
 
   return useMutation({
     mutationKey: ["edit"],
     mutationFn: editQuest,
     onSuccess: () => {
-      close();
       query.invalidateQueries({ queryKey: ["all-quests"] });
     },
   });

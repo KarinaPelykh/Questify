@@ -1,14 +1,17 @@
 import { createContext, ReactNode, useContext } from "react";
 
+import { QuestRes } from "../form/model/contract";
+
 type QuestContextProviderProps = {
   children: ReactNode;
-  questId: string;
+
+  quest: QuestRes;
 };
 
 type QuestContextProps = {
   questId: string;
+  quest: QuestRes;
 };
-
 const QuestContext = createContext<QuestContextProps | null>(null);
 
 export const useQuestContext = () => {
@@ -22,10 +25,10 @@ export const useQuestContext = () => {
 
 export const QuestContextProvider = ({
   children,
-  questId,
+  quest,
 }: QuestContextProviderProps) => {
   return (
-    <QuestContext.Provider value={{ questId }}>
+    <QuestContext.Provider value={{ quest, questId: quest._id }}>
       {children}
     </QuestContext.Provider>
   );
