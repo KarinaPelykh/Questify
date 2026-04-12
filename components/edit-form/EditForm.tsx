@@ -16,18 +16,17 @@ import {
 import { SelectComponent } from "@/shared/ui/select/Select";
 import { CATEGORIES, STATUSES } from "@/shared/ui/select/select.constants";
 
-// import { ActionBtn } from "../card/ActionBtn";
 import { Quest, QuestSchema } from "../form/model/contract";
 import { useEdit } from "./api/useEdit";
 
 export const EditForm = ({
   quest,
   children,
-  btn,
+  close,
 }: {
-  quest: Quest;
+  quest: Quest & { _id: string };
   children: ReactNode;
-  btn: string;
+  close: () => void;
 }) => {
   const { quest: text, status, category, date } = quest;
 
@@ -38,15 +37,17 @@ export const EditForm = ({
       category,
       date,
     },
+
     resolver: valibotResolver(QuestSchema),
   });
 
-  const { mutate: editQuest } = useEdit();
-  console.log(btn);
+  const { mutate: editQuest } = useEdit({ close });
 
   return (
     <Form
-      onSubmit={form.handleSubmit((data) => btn === "done" && editQuest(data))}
+      onSubmit={form.handleSubmit((data) =>
+        editQuest({ ...data, _id: quest._id }),
+      )}
     >
       <FormProvider {...form}>
         <div className="flex justify-between items-center mb-17 tablet-l:mb-9.75">

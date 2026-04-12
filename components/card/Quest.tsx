@@ -6,7 +6,6 @@ import { useToggle } from "@/shared/hook/useToggle";
 import { Button, Icon } from "@/shared/ui";
 
 import { CATEGORIES, STATUSES } from "../../shared/ui/select/select.constants";
-import { useEdit } from "../edit-form/api/useEdit";
 import { EditForm } from "../edit-form/EditForm";
 import { SelectorOption } from "../form/Form";
 import { QuestRes } from "../form/model/contract";
@@ -22,18 +21,18 @@ export const Quest = (quest: QuestRes) => {
 
   const [isDone, setIsDone] = useState(false);
 
-  const [btn, setBtn] = useState<"save" | "clear" | "done" | "">("");
-  const {} = useEdit();
+  const [btn, setBtn] = useState<"save" | "clear" | "done">("save");
+
   return (
-    <div className="perspective-midrange ">
+    <div className="perspective-midrange">
       <article
         className={clsx(
           "bg-white rounded-xs transform-3d tablet-l:w-56 tablet-l:h-52   h-fit p-5  transition-all duration-500  group",
           isDone && "rotate-y-180",
         )}
       >
-        {isOpen && btn === "save" ? (
-          <EditForm quest={quest} btn={btn}>
+        {isOpen ? (
+          <EditForm quest={quest} close={close}>
             <ActionBtn open={open} setBtn={setBtn} />
           </EditForm>
         ) : (

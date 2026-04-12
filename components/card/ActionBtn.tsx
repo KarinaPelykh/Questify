@@ -9,7 +9,7 @@ const icons = ["save", "clear", "done"] as const;
 
 type ActionBtnProps = {
   open: () => void;
-  setBtn: (val: "save" | "clear" | "done" | "") => void;
+  setBtn: (val: "save" | "clear" | "done") => void;
 };
 
 export const ActionBtn = ({ setBtn, open }: ActionBtnProps) => {
