@@ -70,7 +70,7 @@ export const FormCard = ({ close }: FormCardProps) => {
             <Input
               id="quest"
               {...form.register("quest")}
-              className="p-0! h-3.5 border-t-transparent border-l-transparent border-r-transparent border-b-marine-blue rounded-none! w-40.75"
+              className="p-2.5 h-3.5 border-t-transparent border-l-transparent border-r-transparent border-b-marine-blue rounded-none! w-40.75"
             />
             <ErrorMessage className="absolute -bottom-4" />
           </FormField>

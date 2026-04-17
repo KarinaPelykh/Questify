@@ -22,13 +22,24 @@ export const Quest = () => {
           isDone && "rotate-y-180",
         )}
       >
-        {mode === "save" ? (
-          <EditForm close={() => setMode("")}>
-            <ActionBtn setMode={setMode} />
-          </EditForm>
-        ) : (
-          <QuestView setIsDone={setIsDone} setMode={setMode} />
-        )}
+        <div className="backface-hidden size-full">
+          <div
+            className={clsx(
+              mode === "save" ? "  size-full   flex flex-col" : "hidden ",
+            )}
+          >
+            <EditForm>
+              <ActionBtn setMode={setMode} />
+            </EditForm>
+          </div>
+          <div
+            className={clsx(
+              mode === "save" ? "hidden" : " size-full   flex flex-col",
+            )}
+          >
+            <QuestView setIsDone={setIsDone} setMode={setMode} />
+          </div>
+        </div>
 
         {mode === "clear" && <DeleteDialog close={() => setMode("")} />}
         <QuestDone />

@@ -1,7 +1,7 @@
 import clsx from "clsx";
 
 import { SignupForm } from "@/components/signup/SignupForm";
-import { AppLink,Logo } from "@/shared/ui";
+import { AppLink, Logo } from "@/shared/ui";
 
 import css from "./background.module.css";
 
@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <section
       className={clsx(
-        "relative size-full pt-10 h-screen w-full desktop-l:px-25.25 desktop-l:pt-51",
+        "relative size-full pt-10 h-screen w-full desktop-l:px-25.25 desktop-l:pt-20",
         css.hero,
       )}
     >
@@ -21,11 +21,11 @@ export default function Home() {
           quests and exciting challenges.
         </h1>
         <p className="text-light-gray text-xs mb-6">
-          Choose your name to{" "}
+          Choose your name to
           <AppLink href="/" className="underline   hover:text-night-blue">
             sign up
-          </AppLink>{" "}
-          or{" "}
+          </AppLink>
+          or
           <AppLink href="/login" className=" underline  hover:text-night-blue">
             log in
           </AppLink>

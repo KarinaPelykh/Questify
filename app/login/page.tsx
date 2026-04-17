@@ -1,7 +1,7 @@
 import clsx from "clsx";
 
 import { SigninForm } from "@/components/signin/SigninForm";
-import { AppLink,Logo } from "@/shared/ui";
+import { AppLink, Logo } from "@/shared/ui";
 
 import css from "../background.module.css";
 
@@ -9,7 +9,7 @@ export default function LoginPage() {
   return (
     <section
       className={clsx(
-        "relative size-full pt-10 h-screen w-full desktop-l:px-25.25 desktop-l:pt-51",
+        "relative size-full pt-10 h-screen w-full desktop-l:px-25.25 desktop-l:pt-20",
         css.hero,
       )}
     >

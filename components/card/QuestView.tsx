@@ -17,7 +17,7 @@ export const QuestView = ({ setMode, setIsDone }: QuestViewProps) => {
     s.find((item) => item.value === value)?.color;
 
   return (
-    <div className="backface-hidden size-full flex flex-col">
+    <>
       <div className="flex justify-between items-center mb-17 tablet-l:mb-9.75">
         <div className="flex gap-2 items-center justify-center">
           <span
@@ -59,6 +59,6 @@ export const QuestView = ({ setMode, setIsDone }: QuestViewProps) => {
 
         <ActionBtn setMode={setMode} />
       </div>
-    </div>
+    </>
   );
 };

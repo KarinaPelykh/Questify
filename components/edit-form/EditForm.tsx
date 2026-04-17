@@ -20,13 +20,7 @@ import { useQuestContext } from "../card/QuestContext";
 import { Quest, QuestSchema } from "../form/model/contract";
 import { useEdit } from "./api/useEdit";
 
-export const EditForm = ({
-  children,
-  close,
-}: {
-  children: ReactNode;
-  close: () => void;
-}) => {
+export const EditForm = ({ children }: { children: ReactNode }) => {
   const { quest } = useQuestContext();
 
   const { quest: text, status, category, date } = quest;
@@ -46,9 +40,8 @@ export const EditForm = ({
 
   return (
     <Form
-      onSubmit={form.handleSubmit(async (data) => {
-        await editQuest({ ...data, _id: quest._id });
-        close();
+      onSubmit={form.handleSubmit((data) => {
+        editQuest({ ...data, _id: quest._id });
       })}
     >
       <FormProvider {...form}>
@@ -74,7 +67,7 @@ export const EditForm = ({
             <Input
               id="quest"
               {...form.register("quest")}
-              className="p-0! h-3.5 border-t-transparent border-l-transparent border-r-transparent border-b-marine-blue rounded-none! w-40.75"
+              className="p-2.5! h-3.5 border-t-transparent border-l-transparent border-r-transparent border-b-marine-blue rounded-none! w-40.75"
             />
             <ErrorMessage className="absolute -bottom-4" />
           </FormField>
